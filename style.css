@@ -1,0 +1,214 @@
+/* ==========================================================================
+   BEGINNER TIP: CSS VARIABLES & COLOUR PALETTE
+   You can change the hex color codes below to change the website's look.
+   ========================================================================== */
+:root {
+    --cream-bg: #F7F5F0;       /* Main background colour */
+    --light-green: #D8E2DC;    /* Accent / sidebar background colour */
+    --deep-green: #4A6B5B;     /* Primary text and heading colour */
+    --brown-accent: #8C6D53;   /* Secondary accent and link colour */
+    --card-bg: #FFFFFF;        /* White background for cards */
+    --text-color: #2F3E35;     /* Dark readable body text colour */
+}
+
+/* Base Styles & Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--cream-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* ==========================================================================
+   LEFT-SIDE COLUMN NAVIGATION BAR
+   ========================================================================== */
+.sidebar {
+    background-color: var(--light-green);
+    padding: 2rem 1.5rem;
+    width: 100%;
+    border-bottom: 2px solid var(--brown-accent);
+}
+
+.sidebar .logo h2 {
+    color: var(--deep-green);
+    font-size: 1.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.sidebar .logo p {
+    color: var(--brown-accent);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.sidebar nav ul li a {
+    color: var(--deep-green);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* Visible keyboard focus and hover states for accessibility */
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a:focus {
+    background-color: var(--deep-green);
+    color: var(--cream-bg);
+    outline: 3px solid var(--brown-accent);
+}
+
+/* ==========================================================================
+   MAIN CONTENT AREA
+   ========================================================================== */
+.main-content {
+    padding: 2rem;
+    flex: 1;
+    max-width: 900px;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+h1, h2 {
+    color: var(--deep-green);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    border-bottom: 2px solid var(--light-green);
+    padding-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Skills List Styling */
+.skills-list {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+.skills-list li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--deep-green);
+}
+
+/* ==========================================================================
+   PROJECT CARDS
+   ========================================================================== */
+.section-subtitle {
+    font-style: italic;
+    color: var(--brown-accent);
+    margin-bottom: 1rem;
+}
+
+.project-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--light-green);
+    border-left: 6px solid var(--brown-accent);
+    padding: 1.5rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.project-card h3 {
+    color: var(--deep-green);
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   CONTACT SECTION & LINKS
+   ========================================================================== */
+.email-link {
+    display: inline-block;
+    color: var(--brown-accent);
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.email-link:hover,
+.email-link:focus {
+    background-color: var(--light-green);
+    color: var(--deep-green);
+    outline: 3px solid var(--deep-green);
+}
+
+footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--brown-accent);
+    border-top: 1px solid var(--light-green);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN FOR COMPUTERS (Desktop View)
+   ========================================================================== */
+@media (min-width: 768px) {
+    body {
+        flex-direction: row; /* Places sidebar on the left and main content on the right */
+    }
+
+    .sidebar {
+        width: 260px;
+        min-height: 100vh;
+        position: sticky;
+        top: 0;
+        border-bottom: none;
+        border-right: 2px solid var(--brown-accent);
+    }
+
+    .sidebar nav ul {
+        flex-direction: column; /* Stack navigation links vertically in the column */
+        gap: 0.75rem;
+    }
+
+    .main-content {
+        padding: 3rem;
+    }
+
+    .project-grid {
+        flex-direction: row; /* Display project cards side-by-side on wider screens */
+    }
+
+    .project-card {
+        flex: 1;
+    }
+}
